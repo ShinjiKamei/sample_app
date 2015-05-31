@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   
+  self.per_page = 10
+  # ページあたりの表示件数。
+  
   #VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
   #↑1字以上の英数字 "-"or"." @ 1字以上の英数字or"-" 0字以上の("."or1字以上の英字) "." 1字以上の英字
