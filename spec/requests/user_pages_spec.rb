@@ -94,7 +94,7 @@ describe "User Pages" do
         fill_in "Name",             with: "Example User"
         fill_in "Email",            with: "user@example.com"
         fill_in "Password",         with: "kameshin"
-        fill_in "COnfirm Password", with: "kameshin"
+        fill_in "Confirm Password", with: "kameshin"
       end
       it "should create a user" do
         expect { click_button submit }.to change(User, :count).by(1)
@@ -134,7 +134,7 @@ describe "User Pages" do
         fill_in "Name",             with:new_name
         fill_in "Email",            with:new_email
         fill_in "Password",         with:user.password
-        fill_in "COnfirm Password", with:user.password
+        fill_in "Confirm Password", with:user.password
         click_button "Save changes"
       end
       
