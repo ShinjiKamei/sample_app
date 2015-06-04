@@ -1,9 +1,13 @@
 
+<script type="text/javascript">
+  <%= raw Rails.application.assets["static_pages.js.coffee"].to_s %>
+</script>
 <%= form_for(@micropost) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
     <%= f.text_area :content, placeholder: "Compose new micropost..." %>
   </div>
+  <span id="count"></span>
   <%= f.submit "Post", class: "btn btn-large btn-primary" %>
   
 <% end %>
