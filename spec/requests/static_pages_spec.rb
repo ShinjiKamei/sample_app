@@ -47,7 +47,21 @@ describe "Static pages" do
       end
     end
   end
-
+  
+  describe "Profile page" do
+    describe "follower/following counts" do
+      let(:user) { FactoryGirl.create(:user) }
+      let(:other_user) { FactoryGirl.create(:user) }
+      before do
+        other_user.follow!(user)
+        visit user_path(user)
+      end
+      
+      it { should have_link("0 following", href: following_user_path(user)) }
+      it { should have_link("1 followers", href: followers_user_path(user)) }
+    end
+  end
+  
   describe "Help page" do
 
     before { visit help_path }
@@ -93,7 +107,9 @@ describe "Static pages" do
     click_link "sample app"
     expect(page).to have_title(full_title(''))
   end
-
+  
+  
+  
 end
 
 
